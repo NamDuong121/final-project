@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./Services.css";
 import { Col, Container, Row } from "reactstrap";
 
-import servicesData from "../assets/data/serviceData";
+import servicesData from "../data/serviceData";
 
 const Services = () => {
   return (

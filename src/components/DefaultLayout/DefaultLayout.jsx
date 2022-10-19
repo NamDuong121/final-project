@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Routers from "../../routers/Routers";
 
-const Layout = () => {
+const DefaultLayout = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default DefaultLayout;

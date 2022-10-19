@@ -7,12 +7,20 @@ import { Col, Container, Row } from "reactstrap";
 import { cartActions } from "../redux/slices/cartSlice";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    localStorage.getItem("user-login")
+      ? navigate("/checkout")
+      : navigate("/login");
+  };
   return (
     <Helmet title="Giỏ Hàng">
       <CommonSection title="Giỏ Hàng" />
@@ -57,8 +65,9 @@ const Cart = () => {
                 <button className="shop__btn">
                   <Link to="/shop">Tiếp Tục Mua</Link>
                 </button>
-                <button className="shop__btn mt-2">
-                  <Link to="/checkout">Thanh Toán</Link>
+                <button className="shop__btn mt-2" onClick={handleCheckout}>
+                  {/* <Link to="/checkout">Thanh Toán</Link> */}
+                  Thanh Toán
                 </button>
               </div>
             </Col>

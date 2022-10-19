@@ -5,7 +5,7 @@ import CommonSection from "../components/UI/CommonSection";
 
 import "../components/styles/Shop.css";
 
-import products from "../assets/data/products";
+import products from "../data/products";
 import ProductList from "../components/UI/ProductList";
 
 import { useState } from "react";

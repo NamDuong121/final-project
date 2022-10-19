@@ -1,22 +1,22 @@
-import productImg01 from "../images/bucket1.jpeg";
-import productImg02 from "../images/bucket2.jpeg";
-import productImg03 from "../images/bucket3.png";
-import productImg04 from "../images/bucket4.png";
+import productImg01 from "../assets/images/bucket1.jpeg";
+import productImg02 from "../assets/images/bucket2.jpeg";
+import productImg03 from "../assets/images/bucket3.png";
+import productImg04 from "../assets/images/bucket4.png";
 
-import productImg05 from "../images/caps11.jpeg";
-import productImg06 from "../images/caps12.jpeg";
-import productImg07 from "../images/caps13.jpeg";
-import productImg08 from "../images/caps14.jpeg";
-import productImg09 from "../images/caps15.jpeg";
-import productImg10 from "../images/caps16.png";
+import productImg05 from "../assets/images/caps11.jpeg";
+import productImg06 from "../assets/images/caps12.jpeg";
+import productImg07 from "../assets/images/caps13.jpeg";
+import productImg08 from "../assets/images/caps14.jpeg";
+import productImg09 from "../assets/images/caps15.jpeg";
+import productImg10 from "../assets/images/caps16.png";
 
-import productImg11 from "../images/sn1.jpeg";
-import productImg12 from "../images/sn2.jpeg";
-import productImg13 from "../images/sn3.jpeg";
-import productImg14 from "../images/sn4.jpeg";
+import productImg11 from "../assets/images/sn1.jpeg";
+import productImg12 from "../assets/images/sn2.jpeg";
+import productImg13 from "../assets/images/sn3.jpeg";
+import productImg14 from "../assets/images/sn4.jpeg";
 
-import productImg15 from "../images/beret.png";
-import productImg16 from "../images/beret1.png";
+import productImg15 from "../assets/images/beret.png";
+import productImg16 from "../assets/images/beret1.png";
 
 const products = [
   {

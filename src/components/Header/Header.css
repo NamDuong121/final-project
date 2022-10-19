@@ -77,12 +77,42 @@
   cursor: pointer;
 }
 
-.nav__icons span img {
+.nav__icons .profile span {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.nav__icons .profile {
+  position: relative;
+  z-index: 9;
+}
+.nav__icons .profile .profile__action {
+  position: absolute;
+  top: 96%;
+  left: -50px;
+  width: 150px;
+  z-index: 1000000;
+  padding: 15px;
+  line-height: 30px;
+  background-color: var(--card-bg-01);
+}
+
+.nav__icons .profile p img {
   height: 30px;
   width: 30px;
   cursor: pointer;
-  position: absolute;
-  top: 18px;
+  margin-right: 10px;
+}
+
+.profile__action div {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__icons .profile span img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .mobile__menu {

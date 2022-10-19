@@ -6,10 +6,12 @@ import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
 import { motion } from "framer-motion";
 
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useCallback } from "react";
+import { useState } from "react";
 
 const nav__links = [
   {
@@ -33,7 +35,7 @@ const Header = () => {
 
   const menuRef = useRef(null);
 
-  const stickyHeaderFunc = () => {
+  const stickyHeaderFunc = useCallback(() => {
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
@@ -44,13 +46,13 @@ const Header = () => {
         headerRef.current.classList.remove("sticky__header");
       }
     });
-  };
+  }, []);
+
+  const user = JSON.parse(localStorage.getItem("user-login"));
 
   useEffect(() => {
     stickyHeaderFunc();
-
-    return () => window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+  }, []);
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
 
@@ -61,6 +63,7 @@ const Header = () => {
   const navigateToHome = () => {
     navigate("/home");
   };
+  const [status, setStatus] = useState(false);
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -97,13 +100,39 @@ const Header = () => {
                 <i className="ri-shopping-bag-line"></i>
                 <span className="badge">{totalQuantity}</span>
               </span>
-              <span className="logo__icon">
-                <motion.img
-                  whileTap={{ scale: 1.2 }}
-                  src={userIcon}
-                  alt="userIcon"
-                />
-              </span>
+              <div onClick={() => setStatus(!status)} className="profile">
+                {localStorage.getItem("user-login") ? (
+                  <p>
+                    <motion.img
+                      whileTap={{ scale: 1.2 }}
+                      src={userIcon}
+                      alt="userIcon"
+                    />
+                    <span>{user[0].username}</span>
+                  </p>
+                ) : (
+                  <span>
+                    <motion.img
+                      whileTap={{ scale: 1.2 }}
+                      src={userIcon}
+                      alt="userIcon"
+                    />
+                  </span>
+                )}
+                <div
+                  style={{ display: status ? "block" : "none" }}
+                  className="profile__action"
+                >
+                  {localStorage.getItem("user-login") ? (
+                    <span className="fw-bold">Đăng Xuất</span>
+                  ) : (
+                    <div>
+                      <Link to="/signup">Đăng Ký</Link>
+                      <Link to="/login">Đăng Nhập</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="mobile__menu">
                 <span onClick={menuToggle}>
                   <i className="ri-menu-line"></i>

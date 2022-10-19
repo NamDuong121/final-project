@@ -4,7 +4,7 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import ProductList from "../components/UI/ProductList";
 
-import products from "../assets/data/products";
+import products from "../data/products";
 import { useParams } from "react-router-dom";
 
 import "../components/styles/ProductDetails.css";

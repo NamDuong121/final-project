@@ -7,7 +7,7 @@ import counterImg from "../assets/images/counter-timer1.png";
 import heroImg from "../assets/images/hero-img.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import products from "../assets/data/products";
+import products from "../data/products";
 
 import Services from "../services/Services";
 import ProductList from "../components/UI/ProductList";
@@ -114,17 +114,6 @@ const Home = () => {
         </Container>
       </section>
       <section className="new__arrivals">
-        <Container>
-          <Row>
-            <Col lg="12" className="text-center">
-              <h2 className="section__title">New Arrivals</h2>
-            </Col>
-            <ProductList data={bucketProducts} />
-            <ProductList data={beretProducts} />
-          </Row>
-        </Container>
-      </section>
-      <section className="popular__category">
         <Container>
           <Row>
             <Col lg="12" className="text-center">
