@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import "../components/styles/ProductDetails.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useRef } from "react";
+
 import { cartActions } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -18,8 +18,6 @@ import { useEffect } from "react";
 
 const ProductDetails = () => {
   const [tab, setTab] = useState("desc");
-  const reviewUser = useRef("");
-  const reviewMsg = useRef("");
   const dispatch = useDispatch();
 
   const [rating, setRating] = useState(null);
@@ -39,19 +37,27 @@ const ProductDetails = () => {
 
   const relatedProducts = products.filter((item) => item.category === category);
 
+  const storageComment = JSON.parse(localStorage.getItem("comment-list"));
+
+  const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
+  const [commentList, setCommentList] = useState(storageComment || []);
+
+  const totalReview = reviews.length + commentList.length;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const reviewUserName = reviewUser.current.value;
-    const reviewUserMsg = reviewMsg.current.value;
-
-    const reviewObj = {
-      userName: reviewUserName,
-      text: reviewUserMsg,
+    const commentObj = {
+      name,
       rating,
+      comment,
     };
+    setCommentList((prev) => {
+      const newComment = [...prev, commentObj];
+      localStorage.setItem("comment-list", JSON.stringify(newComment));
 
-    console.log(reviewObj);
+      return newComment;
+    });
     toast.success("Bình luận Thành Công");
   };
 
@@ -140,7 +146,7 @@ const ProductDetails = () => {
                   className={`${tab === "rev" ? "active__tab" : ""}`}
                   onClick={() => setTab("rev")}
                 >
-                  Review ({reviews.length})
+                  Review ({totalReview})
                 </h6>
               </div>
               {tab === "desc" ? (
@@ -158,16 +164,24 @@ const ProductDetails = () => {
                           <p>{item.text}</p>
                         </li>
                       ))}
+                      {commentList.map((item, index) => (
+                        <li key={index} className="mb-4">
+                          <h6>{item.name}</h6>
+                          <span>{item.rating}(rating)</span>
+                          <p>{item.comment}</p>
+                        </li>
+                      ))}
                     </ul>
                     <div className="review__form">
                       <h4>Đánh Giá Sản Phẩm</h4>
                       <form action="" onSubmit={handleSubmit}>
                         <div className="form__group">
                           <input
+                            value={name}
                             type="text"
                             placeholder="Tên Của Bạn"
-                            ref={reviewUser}
                             required
+                            onChange={(e) => setName(e.target.value)}
                           />
                         </div>
                         <div className="form__group d-flex align-items-center gap-5 rating__group">
@@ -205,11 +219,12 @@ const ProductDetails = () => {
 
                         <div className="form__group">
                           <textarea
-                            ref={reviewMsg}
                             rows={4}
                             type="text"
                             placeholder="Bình Luận"
                             required
+                            onChange={(e) => setComment(e.target.value)}
+                            value={comment}
                           />
                         </div>
                         <motion.button
