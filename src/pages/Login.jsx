@@ -116,6 +116,10 @@ const Login = () => {
                       )}
                     </ul>
                   )}
+                  <p>
+                    <Link to="/reset">Quên mật khẩu?</Link>
+                  </p>
+
                   <button
                     type="submit"
                     className="shop__btn login__btn

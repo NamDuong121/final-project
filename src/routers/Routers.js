@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Checkout from "../pages/Checkout";
 import ProductDetails from "../pages/ProductDetails";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const Routers = () => {
   return (
@@ -20,6 +21,7 @@ const Routers = () => {
       <Route path="checkout" element={<Checkout />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="reset" element={<ForgotPassword />} />
     </Routes>
   );
 };
