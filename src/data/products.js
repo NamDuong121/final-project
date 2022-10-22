@@ -40,7 +40,7 @@ const products = [
 
   {
     id: "02",
-    productName: "Mũ không lưỡi trai cá tính",
+    productName: "Mũ không lưỡi trai",
     imgUrl: productImg06,
     category: "Mũ Lưỡi Trai",
     price: 159000,
@@ -85,7 +85,7 @@ const products = [
   },
   {
     id: "04",
-    productName: "Mũ lưỡi trai Style Hàn Quốc ",
+    productName: "Mũ lưỡi trai Hàn Quốc ",
     imgUrl: productImg08,
     category: "Mũ Lưỡi Trai",
     price: 120000,
@@ -175,7 +175,7 @@ const products = [
   },
   {
     id: "08",
-    productName: "Mũ Bucket trơn Classic",
+    productName: "Mũ Bucket trơn",
     imgUrl: productImg02,
     category: "Bucket",
     price: 165000,
@@ -198,7 +198,7 @@ const products = [
 
   {
     id: "09",
-    productName: "Mũ Bucket 100% Cotton",
+    productName: "Mũ Bucket Cotton",
     imgUrl: productImg03,
     category: "Bucket",
     price: 139000,
@@ -289,7 +289,7 @@ const products = [
   },
   {
     id: "13",
-    productName: "Snapback Barber Brooklyn",
+    productName: "Snapback Barber",
     imgUrl: productImg13,
     category: "Snapback",
     price: 170000,

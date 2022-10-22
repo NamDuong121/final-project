@@ -12,7 +12,16 @@ import { useState } from "react";
 
 const Shop = () => {
   const [productsData, setProductsData] = useState(products);
-
+  // const handleSort = (e) => {
+  //   const sortValue = e.target.value;
+  //   console.log(sortValue);
+  //   if (sortValue === "ascending") {
+  //     const sortAscending = products.sort(
+  //       (a, b) => parseFloat(a.price) - parseFloat(b.price)
+  //     );
+  //     return setProductsData(sortAscending);
+  //   }
+  // };
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "Mũ Lưỡi Trai") {
@@ -53,6 +62,19 @@ const Shop = () => {
 
     setProductsData(searchedProducts);
   };
+
+  const handleSort = (e) => {
+    const sortValue = e.target.value;
+    if (sortValue === "ascending") {
+      setProductsData((products) =>
+        [...products].sort((a, b) => a.price - b.price)
+      );
+    } else {
+      setProductsData((products) =>
+        [...products].sort((a, b) => b.price - a.price)
+      );
+    }
+  };
   return (
     <Helmet title="Shop">
       <CommonSection title="Sản Phẩm" />
@@ -72,7 +94,7 @@ const Shop = () => {
             </Col>
             <Col lg="3" md="6" className="text-end">
               <div className="fitler__widget">
-                <select>
+                <select onChange={handleSort}>
                   <option>Sắp Xếp</option>
                   <option value="ascending">
                     Thứ tự theo giá: Thấp đến Cao
@@ -83,7 +105,7 @@ const Shop = () => {
                 </select>
               </div>
             </Col>
-            <Col lg="6" md="12">
+            <Col lg="6" md="6">
               <div className="search__box">
                 <input
                   type="text"

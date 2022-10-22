@@ -21,7 +21,7 @@ const Login = () => {
   } = useForm();
 
   const handleLogin = () => {
-    fetch(`http://localhost:8000/user?email=${email}`)
+    fetch(`http://localhost:8000/users?email=${email}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.length === 0) {
@@ -29,7 +29,7 @@ const Login = () => {
         } else {
           setLoading(true);
           fetch(
-            `http://localhost:8000/user?email=${email}&password=${password}`
+            `http://localhost:8000/users?email=${email}&password=${password}`
           )
             .then((response) => response.json())
             .then((data) => {

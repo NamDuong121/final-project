@@ -1,94 +1,32 @@
 {
-  "user": [
-    {
-      "username": "nam",
-      "email": "namduongqtkd@gmail.com",
-      "password": "123456",
-      "id": 1
-    },
-    {
-      "username": "nam",
-      "email": "gohue112@gmail.com",
-      "password": "123456",
-      "file": null,
-      "id": 2
-    },
-    {
-      "username": "nam",
-      "email": "nam@gmail.com",
-      "password": "123456",
-      "file": null,
-      "id": 3
-    },
+  "users": [
     {
       "username": "nam",
       "email": "gohue113@gmail.com",
       "password": "namdien",
-      "file": null,
-      "id": 4
+      "cart": [
+        {
+          "id": "05",
+          "productName": "Mũ lưỡi trai NY",
+          "price": 250000,
+          "imgUrl": "/static/media/caps15.1030d7157e4e98e9fddc.jpeg"
+        }
+      ],
+      "id": 1
     },
     {
-      "username": "nam",
+      "username": "Phung",
       "email": "gohue114@gmail.com",
-      "password": "123445",
-      "file": null,
-      "id": 5
-    },
-    {
-      "username": "nam",
-      "email": "gohue115@gmail.com",
       "password": "namdien",
-      "file": null,
-      "id": 6
+      "cart": [],
+      "id": 2
     },
     {
       "username": "nam",
-      "email": "nam113@gmail.com",
+      "email": "namdien@gmail.com",
       "password": "namdien",
-      "file": null,
-      "id": 7
-    },
-    {
-      "username": "nam",
-      "email": "gohue1@test.com",
-      "password": "namdien",
-      "file": null,
-      "id": 8
-    },
-    {
-      "username": "nam",
-      "email": "gohue117@gmail.com",
-      "password": "123456",
-      "file": null,
-      "id": 9
-    },
-    {
-      "username": "nam",
-      "email": "gohue12@gmail.com",
-      "password": "namdien",
-      "file": null,
-      "id": 10
-    },
-    {
-      "username": "nam",
-      "email": "gohue13@gmail.com",
-      "password": "namdien",
-      "file": null,
-      "id": 11
-    },
-    {
-      "username": "nam",
-      "email": "gohue14@gmail.com",
-      "password": "namdien",
-      "file": null,
-      "id": 12
-    },
-    {
-      "username": "nam",
-      "email": "gohue1@gmail.com",
-      "password": "namdien",
-      "file": null,
-      "id": 13
+      "cart": [],
+      "id": 3
     }
   ]
 }

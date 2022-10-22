@@ -8,6 +8,7 @@ import { cartActions } from "../redux/slices/cartSlice";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -16,10 +17,17 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
-    localStorage.getItem("user-login")
-      ? navigate("/checkout")
-      : navigate("/login");
+  const handleOrder = () => {
+    if (localStorage.getItem("user-login")) {
+      if (cartItems.length > 0) {
+        navigate("/checkout");
+      } else {
+        toast.warn("Giỏ hàng trống! Vui lòng thêm sản phẩm");
+        navigate("/shop");
+      }
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <Helmet title="Giỏ Hàng">
@@ -63,11 +71,11 @@ const Cart = () => {
               </p>
               <div className="d-flex flex-column">
                 <button className="shop__btn">
-                  <Link to="/shop">Tiếp Tục Mua</Link>
+                  <Link to="/shop">Tiếp Tục Mua Hàng</Link>
                 </button>
-                <button className="shop__btn mt-2" onClick={handleCheckout}>
+                <button className="shop__btn mt-2" onClick={handleOrder}>
                   {/* <Link to="/checkout">Thanh Toán</Link> */}
-                  Thanh Toán
+                  Đặt Hàng
                 </button>
               </div>
             </Col>
@@ -80,10 +88,12 @@ const Cart = () => {
 
 const Tr = ({ item }) => {
   const dispatch = useDispatch();
+  // const [quantityProduct, setQuantityProduct] = useState(item.quantity);
 
   const deleteProduct = () => {
     dispatch(cartActions.deleteItem(item.id));
   };
+
   return (
     <tr>
       <td>
@@ -91,7 +101,18 @@ const Tr = ({ item }) => {
       </td>
       <td>{item.productName}</td>
       <td>{item.price.toLocaleString()} VND</td>
-      <td>{item.quantity}</td>
+      <td>
+        {/* <div className="d-flex gap-5">
+          <span onClick={() => handleQuantity("decrease")}>
+            <i className="ri-subtract-line"></i>
+          </span>
+          {item.quantity}
+          <span onClick={() => handleQuantity("increase")}>
+            <i className="ri-add-line"></i>
+          </span>
+        </div> */}
+        {item.quantity}
+      </td>
       <td>
         <motion.i
           whileTap={{ scale: 1.2 }}

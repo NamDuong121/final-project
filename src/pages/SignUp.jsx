@@ -22,10 +22,10 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const signupSubmit = async (data) => {
-    const userInfo = { username, email, password };
-    const userUrl = "http://localhost:8000/user";
-    await fetch(`http://localhost:8000/user?email=${email}`)
+  const signupSubmit = async () => {
+    const userInfo = { username, email, password, cart: [] };
+    const userUrl = "http://localhost:8000/users";
+    await fetch(`http://localhost:8000/users?email=${email}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.length) {
@@ -41,6 +41,7 @@ const Signup = () => {
           })
             .then((response) => response.json())
             .then((data) => {
+              console.log(data);
               setLoading(false);
               toast.success("Đăng Ký Thành Công");
               navigate("/login");

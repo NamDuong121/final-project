@@ -17,9 +17,10 @@ const Footer = () => {
               </div>
             </div>
             <p className="footer__text mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-              hic architecto provident ipsam id. Nulla esse nobis recusandae
-              quibusdam laborum?
+              ZERDIO chuyên kinh doanh các loại mũ nón thời trang cao cấp như mũ
+              lưỡi trai, nón snapback, mũ bucket, mũ nồi beret, mũ len, mũ phớt
+              cho cả Nam & Nữ. Chúng tôi cam kết luôn cập nhật những mẫu mới
+              nhất vì chúng tôi muốn bạn đẹp nhất.
             </p>
           </Col>
           <Col lg="3" md="3" className="mb-4">

@@ -54,7 +54,7 @@ const Checkout = () => {
                   Tổng Tiền: <span>{totalAmount.toLocaleString()} VND</span>
                 </h4>
                 <button className="shop__btn auth__btn w-100 text">
-                  Đặt Hàng
+                  Thanh Toán
                 </button>
               </div>
             </Col>

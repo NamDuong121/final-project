@@ -16,15 +16,15 @@ import { useState } from "react";
 const nav__links = [
   {
     path: "home",
-    display: "Home",
+    display: "Trang Chủ",
   },
   {
     path: "shop",
-    display: "Shop",
+    display: "Sản Phẩm",
   },
   {
     path: "cart",
-    display: "Cart",
+    display: "Giỏ Hàng",
   },
 ];
 const Header = () => {
@@ -63,6 +63,12 @@ const Header = () => {
   const navigateToHome = () => {
     navigate("/home");
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("user-login");
+    navigate("/home");
+  };
+
   const [status, setStatus] = useState(false);
   return (
     <header className="header" ref={headerRef}>
@@ -124,7 +130,9 @@ const Header = () => {
                   className="profile__action"
                 >
                   {localStorage.getItem("user-login") ? (
-                    <span className="fw-bold">Đăng Xuất</span>
+                    <span className="fw-bold" onClick={handleLogOut}>
+                      Đăng Xuất
+                    </span>
                   ) : (
                     <div>
                       <Link to="/signup">Đăng Ký</Link>

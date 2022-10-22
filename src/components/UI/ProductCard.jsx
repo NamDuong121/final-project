@@ -10,16 +10,38 @@ import { cartActions } from "../../redux/slices/cartSlice";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
+
   const addToCart = () => {
+    // const userId = JSON.parse(localStorage.getItem("user-login"))[0].id;
     dispatch(
       cartActions.addItem({
         id: item.id,
         productName: item.productName,
         price: item.price,
         imgUrl: item.imgUrl,
+        quantity: 1,
       })
     );
     toast.success("Thêm vào giỏ hàng thành công");
+
+    // const a = dispatch(
+    //   cartActions.addItem({
+    //     id: item.id,
+    //     productName: item.productName,
+    //     price: item.price,
+    //     imgUrl: item.imgUrl,
+    //   })
+    // );
+    // toast.success("Thêm vào giỏ hàng thành công");
+    // fetch(`http://localhost:8000/users/${userId}`, {
+    //   method: "PATCH",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(
+    //     cart: [a.payload],
+    //   ),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
   };
 
   return (
