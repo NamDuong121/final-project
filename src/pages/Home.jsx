@@ -18,28 +18,24 @@ import Clock from "../components/UI/Clock";
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProuducts, setBestSalesProducts] = useState(products);
-  const [bucketProducts, setBucketProducts] = useState([]);
-  const [beretProducts, setBeretProducts] = useState([]);
+  const [newArrivalProducts, setNewArrivalProducts] = useState(products);
+
   useEffect(() => {
     const filterTrendingProducts = products.filter(
       (item) => item.trending === true
     );
-    const filterCapsProducts = products.filter(
-      (item) => item.category === "Mũ Lưỡi Trai"
-    );
 
-    const filterBeretProducts = products.filter(
-      (item) => item.category === "Beret"
-    );
+    setTrendingProducts(filterTrendingProducts);
     setBestSalesProducts(
       products.sort((a, b) => a.remainingAmount - b.remainingAmount).slice(0, 4)
     );
-    setTrendingProducts(filterTrendingProducts);
-    setBucketProducts(filterCapsProducts);
-    setBeretProducts(filterBeretProducts);
+    setNewArrivalProducts(
+      products.sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 8)
+    );
   }, []);
 
   const year = new Date().getFullYear();
+
   return (
     <Helmet title="Home">
       <section className="hero__section">
@@ -116,10 +112,9 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="text-center">
-              <h2 className="section__title">New Arrivals</h2>
+              <h2 className="section__title">Hàng Mới </h2>
             </Col>
-            <ProductList data={bucketProducts} />
-            <ProductList data={beretProducts} />
+            <ProductList data={newArrivalProducts} />
           </Row>
         </Container>
       </section>

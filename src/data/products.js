@@ -42,6 +42,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Sep 20, 2022",
   },
 
   {
@@ -71,6 +72,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 21, 2022",
   },
 
   {
@@ -100,6 +102,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 21, 2022",
   },
   {
     id: "04",
@@ -121,6 +124,7 @@ const products = [
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
     ],
+    arrivedAt: "Oct 22, 2022",
     avgRating: 4.7,
     amount: 200,
     sold: 145,
@@ -154,6 +158,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 19, 2022",
   },
 
   {
@@ -182,6 +187,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 18, 2022",
   },
 
   {
@@ -210,6 +216,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 16, 2022",
   },
   {
     id: "08",
@@ -237,6 +244,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 22, 2022",
   },
 
   {
@@ -265,6 +273,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 22, 2022",
   },
 
   {
@@ -293,6 +302,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 20, 2022",
   },
 
   {
@@ -321,6 +331,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 20, 2022",
   },
 
   {
@@ -349,6 +360,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 22, 2022",
   },
   {
     id: "13",
@@ -377,6 +389,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 21, 2022",
   },
   {
     id: "14",
@@ -404,6 +417,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 23, 2022",
   },
   {
     id: "15",
@@ -431,6 +445,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 18, 2022",
   },
 
   {
@@ -459,6 +474,7 @@ const products = [
     get remainingAmount() {
       return this.amount - this.sold;
     },
+    arrivedAt: "Oct 22, 2022",
   },
 ];
 
