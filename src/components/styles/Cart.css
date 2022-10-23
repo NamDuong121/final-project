@@ -1,3 +1,10 @@
+.empty__cart {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
 .table tr td img {
   height: 80px !important;
   width: 80px !important;

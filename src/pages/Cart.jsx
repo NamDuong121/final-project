@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import emptyCartImg from "../assets/images/empty-cart.png";
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
@@ -37,7 +39,12 @@ const Cart = () => {
           <Row>
             <Col lg="9">
               {cartItems.length === 0 ? (
-                <h2 className="fs-4 text-center">Giỏ Hàng Trống</h2>
+                // <h2 className="fs-4 text-center">Giỏ Hàng Trống</h2>
+                <img
+                  src={emptyCartImg}
+                  alt="emptyCart"
+                  className="empty__cart"
+                />
               ) : (
                 <table className="bordered table">
                   <thead>
