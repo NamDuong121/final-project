@@ -22,7 +22,7 @@ const Home = () => {
   const [beretProducts, setBeretProducts] = useState([]);
   useEffect(() => {
     const filerTrendingProducts = products.filter(
-      (item) => item.category === "Snapback"
+      (item) => item.trending === true
     );
     const filerCapsProducts = products.filter(
       (item) => item.category === "Mũ Lưỡi Trai"

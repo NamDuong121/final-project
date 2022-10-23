@@ -36,6 +36,7 @@ const products = [
       },
     ],
     avgRating: 4.5,
+    trending: true,
   },
 
   {
@@ -59,6 +60,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    trending: true,
   },
 
   {
@@ -82,6 +84,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    trending: true,
   },
   {
     id: "04",
@@ -308,6 +311,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    trending: true,
   },
   {
     id: "14",
