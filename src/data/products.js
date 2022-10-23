@@ -37,6 +37,11 @@ const products = [
     ],
     avgRating: 4.5,
     trending: true,
+    amount: 200,
+    sold: 100,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -61,6 +66,11 @@ const products = [
     ],
     avgRating: 4.7,
     trending: true,
+    amount: 200,
+    sold: 150,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -85,6 +95,11 @@ const products = [
     ],
     avgRating: 4.7,
     trending: true,
+    amount: 200,
+    sold: 140,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "04",
@@ -107,6 +122,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 145,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "05",
@@ -129,6 +149,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 151,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -152,6 +177,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 152,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -175,6 +205,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 165,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "08",
@@ -197,6 +232,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 156,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -220,6 +260,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 157,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -243,6 +288,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 148,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -266,6 +316,11 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    amount: 200,
+    sold: 149,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -289,6 +344,11 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    amount: 200,
+    sold: 151,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "13",
@@ -312,6 +372,11 @@ const products = [
     ],
     avgRating: 4.7,
     trending: true,
+    amount: 200,
+    sold: 139,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "14",
@@ -334,6 +399,11 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    amount: 200,
+    sold: 164,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
   {
     id: "15",
@@ -356,6 +426,11 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    amount: 200,
+    sold: 168,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 
   {
@@ -379,6 +454,11 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    amount: 200,
+    sold: 169,
+    get remainingAmount() {
+      return this.amount - this.sold;
+    },
   },
 ];
 

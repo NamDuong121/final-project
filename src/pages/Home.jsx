@@ -17,27 +17,26 @@ import Clock from "../components/UI/Clock";
 
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
-  const [bestSalesProuducts, setBestSalesProducts] = useState([]);
+  const [bestSalesProuducts, setBestSalesProducts] = useState(products);
   const [bucketProducts, setBucketProducts] = useState([]);
   const [beretProducts, setBeretProducts] = useState([]);
   useEffect(() => {
-    const filerTrendingProducts = products.filter(
+    const filterTrendingProducts = products.filter(
       (item) => item.trending === true
     );
-    const filerCapsProducts = products.filter(
+    const filterCapsProducts = products.filter(
       (item) => item.category === "Mũ Lưỡi Trai"
     );
-    const filerBucketProducts = products.filter(
-      (item) => item.category === "Bucket"
-    );
-    const filerBeretProducts = products.filter(
+
+    const filterBeretProducts = products.filter(
       (item) => item.category === "Beret"
     );
-
-    setTrendingProducts(filerTrendingProducts);
-    setBestSalesProducts(filerBucketProducts);
-    setBucketProducts(filerCapsProducts);
-    setBeretProducts(filerBeretProducts);
+    setBestSalesProducts(
+      products.sort((a, b) => a.remainingAmount - b.remainingAmount).slice(0, 4)
+    );
+    setTrendingProducts(filterTrendingProducts);
+    setBucketProducts(filterCapsProducts);
+    setBeretProducts(filterBeretProducts);
   }, []);
 
   const year = new Date().getFullYear();
