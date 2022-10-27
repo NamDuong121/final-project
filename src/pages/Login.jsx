@@ -37,7 +37,7 @@ const Login = () => {
                 setLoading(false);
                 toast.success("Đăng Nhập Thành Công");
                 localStorage.setItem("user-login", JSON.stringify(data));
-                navigate("/checkout");
+                navigate("/cart");
               } else {
                 setLoading(false);
                 toast.error("Mật khẩu không chính xác");

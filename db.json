@@ -4,29 +4,50 @@
       "username": "nam",
       "email": "gohue113@gmail.com",
       "password": "namdien",
+      "phone": "0931959171",
+      "address": "12 Quang Trung",
       "cart": [
         {
-          "id": "05",
-          "productName": "Mũ lưỡi trai NY",
-          "price": 250000,
-          "imgUrl": "/static/media/caps15.1030d7157e4e98e9fddc.jpeg"
+          "id": "07",
+          "productName": "Mũ rộng vành Bucket",
+          "price": 127000,
+          "imgUrl": "/static/media/bucket1.3bec1c3efe5611980f86.jpeg",
+          "quantity": 1
+        },
+        {
+          "id": "15",
+          "productName": "Mũ Beret Len",
+          "price": 139000,
+          "imgUrl": "/static/media/beret.79465a4a0e24bf894c50.png",
+          "quantity": 1
+        },
+        {
+          "id": "16",
+          "productName": "Mũ Beret Tròn",
+          "price": 169000,
+          "imgUrl": "/static/media/beret1.15cb741e0dccb7c7b3a3.png",
+          "quantity": 1
+        },
+        {
+          "id": "03",
+          "productName": "Mũ lưỡi trai hoa cúc",
+          "price": 125000,
+          "imgUrl": "/static/media/caps13.bf9b593d43824ca0ea0c.jpeg",
+          "quantity": 1
         }
       ],
+      "order": [],
       "id": 1
     },
     {
-      "username": "Phung",
-      "email": "gohue114@gmail.com",
-      "password": "namdien",
-      "cart": [],
-      "id": 2
-    },
-    {
       "username": "nam",
-      "email": "namdien@gmail.com",
+      "email": "gohue112@gmail.com",
       "password": "namdien",
+      "phone": "0931959171",
+      "address": "92 Quang Trung - Đà Nẵng",
       "cart": [],
-      "id": 3
+      "order": [],
+      "id": 2
     }
   ]
 }

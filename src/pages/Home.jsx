@@ -15,6 +15,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Clock from "../components/UI/Clock";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProuducts, setBestSalesProducts] = useState(products);
@@ -65,6 +68,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
       <Services />
       <section className="trending__products">
         <Container>

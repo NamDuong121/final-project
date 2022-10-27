@@ -108,6 +108,11 @@
   flex-direction: column;
 }
 
+.profile__action div a:hover {
+  font-weight: bold;
+  color: #000;
+}
+
 .nav__icons .profile span img {
   height: 30px;
   width: 30px;

@@ -1,0 +1,75 @@
+.profile__img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+}
+
+.profile__info h3 {
+  border-bottom: 1px solid var(--primary-color);
+  padding: 5px;
+  background-color: var(--hero-bg);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.profile__user p {
+  text-transform: capitalize;
+}
+
+.profile__links {
+  background-color: var(--primary-color);
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.profile__links li {
+  color: #fff;
+  list-style: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.profile__links li:hover {
+  font-weight: 500;
+}
+
+.profile__info {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  min-height: 400px;
+}
+
+.profile__details {
+  margin: 30px 20px;
+}
+
+.profile__details span i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: coral;
+  cursor: pointer;
+}
+
+.profile__name {
+  text-transform: capitalize;
+}
+
+.save__btn {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 30px;
+  border-radius: 10px;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.change__profile,
+.order__history {
+  border: 1px solid var(--primary-color);
+  min-height: 400px;
+}
+
+.order__history {
+  border-radius: 10px;
+}

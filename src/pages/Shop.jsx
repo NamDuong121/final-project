@@ -12,16 +12,7 @@ import { useState } from "react";
 
 const Shop = () => {
   const [productsData, setProductsData] = useState(products);
-  // const handleSort = (e) => {
-  //   const sortValue = e.target.value;
-  //   console.log(sortValue);
-  //   if (sortValue === "ascending") {
-  //     const sortAscending = products.sort(
-  //       (a, b) => parseFloat(a.price) - parseFloat(b.price)
-  //     );
-  //     return setProductsData(sortAscending);
-  //   }
-  // };
+
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "Mũ Lưỡi Trai") {

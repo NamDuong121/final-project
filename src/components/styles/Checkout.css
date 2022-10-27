@@ -30,3 +30,20 @@ h4 {
   color: var(--primary-color);
   font-weight: 500;
 }
+
+.checkout {
+  background: var(--card-bg-02);
+  text-align: center;
+}
+
+.checkout__username {
+  text-transform: capitalize;
+}
+
+.change__address input {
+  padding: 0 10px;
+}
+
+.payment__method input {
+  margin-right: 10px;
+}

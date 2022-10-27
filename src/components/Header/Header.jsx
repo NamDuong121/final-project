@@ -70,6 +70,7 @@ const Header = () => {
   };
 
   const [status, setStatus] = useState(false);
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -104,7 +105,12 @@ const Header = () => {
               </span>
               <span className="cart__icon" onClick={navigateToCart}>
                 <i className="ri-shopping-bag-line"></i>
-                <span className="badge">{totalQuantity}</span>
+                <span className="badge">
+                  {!localStorage.getItem("user-login")
+                    ? totalQuantity
+                    : JSON.parse(localStorage.getItem("user-login"))[0].cart
+                        .length}
+                </span>
               </span>
               <div onClick={() => setStatus(!status)} className="profile">
                 {localStorage.getItem("user-login") ? (
@@ -130,12 +136,20 @@ const Header = () => {
                   className="profile__action"
                 >
                   {localStorage.getItem("user-login") ? (
-                    <span className="fw-bold" onClick={handleLogOut}>
-                      Đăng Xuất
-                    </span>
+                    <div className="w-100">
+                      <Link to="/profile">Thông tin</Link>
+                      <span
+                        className="fw-semibold border-top border-dark"
+                        onClick={handleLogOut}
+                      >
+                        Đăng Xuất
+                      </span>
+                    </div>
                   ) : (
                     <div>
-                      <Link to="/signup">Đăng Ký</Link>
+                      <Link to="/signup" className="border-bottom border-2">
+                        Đăng Ký
+                      </Link>
                       <Link to="/login">Đăng Nhập</Link>
                     </div>
                   )}

@@ -12,6 +12,9 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -23,7 +26,15 @@ const Signup = () => {
   } = useForm();
 
   const signupSubmit = async () => {
-    const userInfo = { username, email, password, cart: [] };
+    const userInfo = {
+      username,
+      email,
+      password,
+      phone,
+      address,
+      cart: [],
+      order: [],
+    };
     const userUrl = "http://localhost:8000/users";
     await fetch(`http://localhost:8000/users?email=${email}`)
       .then((response) => response.json())
@@ -95,6 +106,7 @@ const Signup = () => {
                       })}
                     />
                   </FormGroup>
+
                   <FormGroup className="form__group">
                     <input
                       name="password"
@@ -105,6 +117,32 @@ const Signup = () => {
                         required: true,
                         minLength: 6,
                         onChange: (e) => setPassword(e.target.value),
+                      })}
+                    />
+                  </FormGroup>
+                  <FormGroup className="form__group">
+                    <input
+                      name="phone"
+                      type="number"
+                      placeholder="Số Điện Thoại"
+                      value={phone}
+                      {...register("phone", {
+                        required: true,
+                        minLength: 10,
+                        maxLength: 11,
+                        onChange: (e) => setPhone(e.target.value),
+                      })}
+                    />
+                  </FormGroup>
+                  <FormGroup className="form__group">
+                    <input
+                      name="address"
+                      type="text"
+                      placeholder="Địa Chỉ"
+                      value={address}
+                      {...register("address", {
+                        required: true,
+                        onChange: (e) => setAddress(e.target.value),
                       })}
                     />
                   </FormGroup>
@@ -133,6 +171,26 @@ const Signup = () => {
                       {errors.password?.type === "minLength" && (
                         <li className="text-danger text-start ">
                           *** Mật khẩu phải có từ 6 ký tự
+                        </li>
+                      )}
+                      {errors.phone?.type === "required" && (
+                        <li className="text-danger text-start ">
+                          *** Vui lòng nhập Số Điện Thoại
+                        </li>
+                      )}
+                      {errors.phone?.type === "minLength" && (
+                        <li className="text-danger text-start ">
+                          *** Số Điện Thoại phải có từ 10 số
+                        </li>
+                      )}
+                      {errors.phone?.type === "maxLength" && (
+                        <li className="text-danger text-start ">
+                          *** Số Điện Thoại tối đa 11 chữ số
+                        </li>
+                      )}
+                      {errors.address?.type === "required" && (
+                        <li className="text-danger text-start ">
+                          *** Vui lòng nhập Địa Chỉ
                         </li>
                       )}
                     </ul>

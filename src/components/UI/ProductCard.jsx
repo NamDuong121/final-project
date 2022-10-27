@@ -12,36 +12,55 @@ const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    // const userId = JSON.parse(localStorage.getItem("user-login"))[0].id;
-    dispatch(
-      cartActions.addItem({
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        imgUrl: item.imgUrl,
-        quantity: 1,
-      })
-    );
-    toast.success("Thêm vào giỏ hàng thành công");
+    if (localStorage.getItem("user-login")) {
+      const user = JSON.parse(localStorage.getItem("user-login"))[0];
+      const flag = user.cart.some((e) => e.id === item.id);
+      if (!flag) {
+        const newCart = [
+          ...user.cart,
+          {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            imgUrl: item.imgUrl,
+            quantity: 1,
+          },
+        ];
 
-    // const a = dispatch(
-    //   cartActions.addItem({
-    //     id: item.id,
-    //     productName: item.productName,
-    //     price: item.price,
-    //     imgUrl: item.imgUrl,
-    //   })
-    // );
-    // toast.success("Thêm vào giỏ hàng thành công");
-    // fetch(`http://localhost:8000/users/${userId}`, {
-    //   method: "PATCH",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(
-    //     cart: [a.payload],
-    //   ),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
+        const userCart = { ...user, cart: newCart };
+
+        const userId = JSON.parse(localStorage.getItem("user-login"))[0].id;
+        fetch(`http://localhost:8000/users/${userId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userCart),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+        localStorage.setItem("user-login", JSON.stringify([userCart]));
+        dispatch(
+          cartActions.addItem({
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            imgUrl: item.imgUrl,
+          })
+        );
+        toast.success("Thêm vào giỏ hàng thành công");
+      } else {
+        toast.error("Sản phẩm đã có trong giỏ hàng!");
+      }
+    } else {
+      dispatch(
+        cartActions.addItem({
+          id: item.id,
+          productName: item.productName,
+          price: item.price,
+          imgUrl: item.imgUrl,
+        })
+      );
+      toast.success("Thêm vào giỏ hàng thành công");
+    }
   };
 
   return (
