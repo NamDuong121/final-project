@@ -7,12 +7,15 @@ import { Col, Container, Form, FormGroup, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const deliveryFees = 30000;
 
   const [newAddress, setNewAddress] = useState("");
   const [user, setUser] = useState([]);
+  const navigate = useNavigate();
   const [total, setTotal] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
   const userId = JSON.parse(localStorage.getItem("user-login")) || [];
@@ -31,9 +34,48 @@ const Checkout = () => {
           )
         );
       });
-  }, []);
+  }, [userId]);
   const totalQty = useSelector((state) => state.cart.totalQuantity);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+
+  const handleCheckout = () => {
+    if (newAddress === "") {
+      fetch(`http://localhost:8000/users/${userId[0].id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          cart: [],
+          order: user[0].cart,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          localStorage.setItem("user-login", JSON.stringify([data]));
+          return setUser(data);
+        });
+    } else {
+      fetch(`http://localhost:8000/users/${userId[0].id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          address: newAddress,
+          cart: [],
+          order: user[0].cart,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          localStorage.setItem("user-login", JSON.stringify([data]));
+          setUser(data);
+        });
+    }
+    toast.success("Thanh toán thành công");
+    navigate("/checkout-successful");
+  };
 
   return (
     <Helmet title="Thanh Toán">
@@ -87,8 +129,8 @@ const Checkout = () => {
               <h6 className="mb-4 fw-bold payment">Phương Thức Thanh Toán</h6>
               <Form>
                 <FormGroup className="payment__method">
-                  <input type="radio" name="payment-method" />
-                  <label htmlFor="ship-code">Ship Code</label>
+                  <input type="radio" name="payment-method" defaultChecked />
+                  <label htmlFor="ship-code">Ship COD</label>
                 </FormGroup>
                 <FormGroup className="payment__method">
                   <input type="radio" name="payment-method" />
@@ -135,7 +177,10 @@ const Checkout = () => {
                     VND
                   </span>
                 </h4>
-                <button className="shop__btn auth__btn w-100 text">
+                <button
+                  className="shop__btn auth__btn w-100 text"
+                  onClick={handleCheckout}
+                >
                   Thanh Toán
                 </button>
               </div>

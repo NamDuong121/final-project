@@ -1,0 +1,14 @@
+.order__message {
+  border: 1px solid var(--card-bg-02);
+  background: var(--hero-bg);
+  margin: 50px 0;
+}
+
+.order__message i {
+  font-size: 50px;
+  color: green;
+}
+
+.order__subs {
+  margin-bottom: 100px;
+}

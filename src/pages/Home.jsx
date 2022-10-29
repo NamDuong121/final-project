@@ -47,13 +47,14 @@ const Home = () => {
             <Col lg="6" md="6">
               <div className="hero__content">
                 <p className="hero__subtitle">
-                  Sản Phẩm Trending trong năm {year}
+                  Những sản phẩm HOT trong năm {year}
                 </p>
                 <h2>Giúp Bạn Trở Nên Cá Tính & Năng Động</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Fugiat quam provident inventore. Exercitationem, blanditiis!
-                  Qui ab velit repudiandae esse harum.
+                  Bạn đang tìm cho mình mẫu mũ lưỡi trai, chất liệu cao cấp,
+                  thiết kế sang trọng, mẫu mã đẳng cấp, thời thượng với mức giá
+                  hợp lý và giúp bạn tỏa sáng? Hãy click vào nút bấm sẽ có sản
+                  phẩm bạn cần tìm!
                 </p>
                 <motion.button whileTap={{ scale: 1.2 }} className="shop__btn">
                   <Link to="/shop">XEM NGAY</Link>

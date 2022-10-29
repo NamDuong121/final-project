@@ -47,16 +47,16 @@ const Footer = () => {
               <h4 className="quick__links--title">Liên kết</h4>
               <ListGroup className="mb-3">
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="#">Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="#">Cart</Link>
+                  <Link to="/contact">Liên Hệ</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="#">Đăng Nhập</Link>
+                  <Link to="/about">Giới Thiệu</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="#">Chính Sách Riêng Tư </Link>
+                  <Link to="/home">Trang Chủ</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>

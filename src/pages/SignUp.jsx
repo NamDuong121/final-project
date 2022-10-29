@@ -33,7 +33,7 @@ const Signup = () => {
       phone,
       address,
       cart: [],
-      order: [],
+      order: {},
     };
     const userUrl = "http://localhost:8000/users";
     await fetch(`http://localhost:8000/users?email=${email}`)

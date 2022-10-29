@@ -1,0 +1,24 @@
+.about {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.about__title--content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__title--content i {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.about__content p {
+  color: var(--primary-color);
+}
+
+.back__home {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}

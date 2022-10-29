@@ -73,3 +73,15 @@
 .order__history {
   border-radius: 10px;
 }
+
+.order__history a {
+  border: 1px solid var(--hero-bg);
+  background: var(--hero-bg);
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.order__history a:hover {
+  font-weight: 500;
+  color: var(--primary-color);
+}

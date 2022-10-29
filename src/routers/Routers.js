@@ -10,6 +10,9 @@ import Checkout from "../pages/Checkout";
 import ProductDetails from "../pages/ProductDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import UserProfile from "../pages/UserProfile";
+import CheckoutSuccessful from "../pages/CheckoutSuccessful";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
 
 const Routers = () => {
   return (
@@ -19,10 +22,14 @@ const Routers = () => {
       <Route path="shop" element={<Shop />} />
       <Route path="shop/:id" element={<ProductDetails />} />
       <Route path="cart" element={<Cart />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="about" element={<About />} />
       <Route path="checkout" element={<Checkout />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="profile" element={<UserProfile />} />
+
+      <Route path="checkout-successful" element={<CheckoutSuccessful />} />
 
       <Route path="reset" element={<ForgotPassword />} />
     </Routes>

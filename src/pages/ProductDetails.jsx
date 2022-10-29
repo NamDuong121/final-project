@@ -33,6 +33,8 @@ const ProductDetails = () => {
     reviews,
     description,
     shortDesc,
+    remainingAmount,
+    sold,
   } = product;
 
   const relatedProducts = products.filter((item) => item.category === category);
@@ -110,6 +112,9 @@ const ProductDetails = () => {
                   <p>
                     (<span>{avgRating}</span> Ratings)
                   </p>
+                  <p>
+                    Đã bán: <span>{sold}</span> sản phẩm
+                  </p>
                 </div>
                 <div>
                   <span className="product__price">
@@ -118,13 +123,18 @@ const ProductDetails = () => {
                 </div>
 
                 <p className="mt-3">{shortDesc}</p>
-                <motion.button
-                  whileTap={{ scale: 1.2 }}
-                  className="shop__btn"
-                  onClick={addToCart}
-                >
-                  Thêm Vào Giỏ
-                </motion.button>
+                <div className="product__remain d-flex align-items-center gap-3 mt-5">
+                  <motion.button
+                    whileTap={{ scale: 1.2 }}
+                    className="shop__btn m-0"
+                    onClick={addToCart}
+                  >
+                    Thêm Vào Giỏ
+                  </motion.button>
+                  <p>
+                    Còn lại: <span>{remainingAmount}</span> sản phẩm
+                  </p>
+                </div>
               </div>
             </Col>
           </Row>
@@ -159,7 +169,7 @@ const ProductDetails = () => {
                     <ul>
                       {reviews?.map((item, index) => (
                         <li key={index} className="mb-4">
-                          <h6>Nam Duong</h6>
+                          <h6>Hải </h6>
                           <span>{item.rating}(rating)</span>
                           <p>{item.text}</p>
                         </li>

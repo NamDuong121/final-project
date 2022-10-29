@@ -23,8 +23,12 @@ const nav__links = [
     display: "Sản Phẩm",
   },
   {
-    path: "cart",
-    display: "Giỏ Hàng",
+    path: "contact",
+    display: "Liên Hệ",
+  },
+  {
+    path: "about",
+    display: "Giới Thiệu",
   },
 ];
 const Header = () => {

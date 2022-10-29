@@ -1,5 +1,5 @@
 import React from "react";
-import { CardText, Col, Container, Form, FormGroup, Row } from "reactstrap";
+import { Col, Container, Form, FormGroup, Row } from "reactstrap";
 
 import "../components/styles/UserProfile.css";
 
@@ -16,10 +16,16 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [user, setUser] = useState([]);
+  const [order, setOrder] = useState([]);
+  const [isDetails, setIsDetails] = useState(false);
 
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const changeItems = { phone, address };
+
+  const now = new Date().toDateString();
+  const [total, setTotal] = useState(0);
+  const deliveryFees = 30000;
 
   const {
     register,
@@ -31,8 +37,17 @@ const UserProfile = () => {
   useEffect(() => {
     fetch(`http://localhost:8000/users/${userId[0].id}`)
       .then((response) => response.json())
-      .then((data) => setUser([data]));
-  }, [userId]);
+      .then((data) => {
+        setUser([data]);
+        setTotal(
+          data.order.reduce(
+            (sum, i) => sum + Number(i.price) * Number(i.quantity),
+            deliveryFees
+          )
+        );
+        setOrder(data.order);
+      });
+  }, []);
 
   const handleExit = () => {
     localStorage.removeItem("user-login");
@@ -62,7 +77,7 @@ const UserProfile = () => {
   return (
     <Helmet title="Khách Khàng">
       <Container>
-        <Row className="d-flex gap-2 p-4 justify-content-center">
+        <Row className="d-flex gap-2 justify-content-between p-4">
           <Col lg="3" className="profile__links">
             <div className="text-center profile__user">
               <img src={dummyImg} alt="" className="profile__img" />
@@ -196,17 +211,91 @@ const UserProfile = () => {
           </Col>
           <Col lg="8" style={{ display: show ? "block" : "none" }}>
             <div className="order__history">
+              <div className="d-flex justify-content-between align-items-center">
+                <h5 className="p-3">Lịch Sử Mua Hàng</h5>
+
+                <Link to="/home">
+                  <span className="p-2"> &rarr; Quay lại Trang Chủ</span>
+                </Link>
+              </div>
               {user.map((item, index) =>
                 item.order.length === 0 ? (
-                  <div className="order__empty p-2" key={index}>
+                  <div
+                    className="order__empty p-2 d-flex align-items-center gap-3"
+                    key={index}
+                  >
                     <p className="text-primary">** Chưa có lịch sử mua hàng!</p>
-                    <button className="shop__btn mt-0">
+                    <motion.button
+                      whileTap={{ scale: 1.2 }}
+                      className="shop__btn mt-0"
+                    >
                       <Link to="/home">Quay lại trang chủ</Link>
-                    </button>
+                    </motion.button>
                   </div>
                 ) : (
-                  <div className="order__info" key={index}>
-                    order
+                  <div key={index} className="p-3">
+                    <p className="mb-1 text-primary">
+                      Tổng tiền đã bao gồm Thuế và Chi Phí Vận Chuyển
+                    </p>
+                    <div className="order__subs d-flex text-center bg-light">
+                      <div className="order__number col-2 border-2 border-end">
+                        <p>Mã Đơn</p>
+                        <h6>140</h6>
+                      </div>
+                      <div className="order__times col-3 border-end">
+                        <p>Thời Gian</p>
+                        <h6>{now}</h6>
+                      </div>
+                      <div className="order__number col-3 border-end">
+                        <p>Tổng Tiền</p>
+                        <h6>{total.toLocaleString()} VND</h6>
+                      </div>
+                      <div className="order__number col-2">
+                        <p>Phương Thức</p>
+                        <h6>Ship COD</h6>
+                      </div>
+                      <div className="col-2">
+                        <motion.button
+                          whileTap={{ scale: 1.2 }}
+                          className="shop__btn m-0 h-100 w-100"
+                          onClick={() => setIsDetails(!isDetails)}
+                        >
+                          Chi tiết
+                        </motion.button>
+                      </div>
+                    </div>
+                    <div
+                      className="detail__order"
+                      style={{ display: isDetails ? "block" : "none" }}
+                    >
+                      <h6 className="mb-2">Chi Tiết Đơn Hàng</h6>
+                      <table className="bordered table mb-5" border="1">
+                        <thead>
+                          <tr className="bg-light">
+                            <th>Hình Ảnh</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá</th>
+                            <th>Số Lượng</th>
+                            <th>Tình Trạng</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {order.map((item, index) => (
+                            <tr key={index}>
+                              <td>
+                                <img src={item.imgUrl} alt="" />
+                              </td>
+                              <td>{item.productName}</td>
+                              <td>{item.price.toLocaleString()} VND</td>
+                              <td>
+                                <div className="">{item.quantity}</div>
+                              </td>
+                              <td className="text-primary">Đang Xử Lý</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 )
               )}

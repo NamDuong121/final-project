@@ -83,6 +83,11 @@
   cursor: pointer;
 }
 
+.product__remain p span {
+  color: coral;
+  font-weight: 500;
+}
+
 .related__title {
   font-size: 1.2rem;
   font-weight: 600;

@@ -18,6 +18,7 @@ const Cart = () => {
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [cart, setCart] = useState([]);
+
   const [total, setTotal] = useState(0);
   const user = JSON.parse(localStorage.getItem("user-login")) || [];
   useEffect(() => {
@@ -42,14 +43,15 @@ const Cart = () => {
   const navigate = useNavigate();
   const handleOrder = () => {
     if (localStorage.getItem("user-login")) {
-      if (cartItems.length > 0) {
+      if (cart.length > 0) {
         navigate("/checkout");
       } else {
-        toast.warn("Giỏ hàng trống! Vui lòng thêm sản phẩm");
         navigate("/shop");
+        toast.warn("Giỏ hàng trống! Vui lòng thêm sản phẩm");
       }
     } else {
       navigate("/login");
+      toast.warning("Vui lòng Đăng Nhập trước khi đặt hàng");
     }
   };
 
@@ -228,7 +230,6 @@ const Cart = () => {
                   <Link to="/shop">Tiếp Tục Mua Hàng</Link>
                 </button>
                 <button className="shop__btn mt-2" onClick={handleOrder}>
-                  {/* <Link to="/checkout">Thanh Toán</Link> */}
                   Đặt Hàng
                 </button>
               </div>
